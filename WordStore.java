@@ -18,10 +18,10 @@ public class WordStore {
 			for(char alphabet = 'A'; alphabet <= 'Z';alphabet++) {
 				String letter = String.valueOf(alphabet);
 				mp.put(letter, null);
-				String line = br.readLine();
-				while (line.charAt(0) == alphabet) {
+				String line = null;
+				do {
+					line = br.readLine();
 					if (line.length() < 3){
-						line = br.readLine();
 					}
 					else {
 						List<String> wordList = mp.get(letter);
@@ -30,9 +30,8 @@ public class WordStore {
 							mp.put(letter, wordList);
 						}
 						wordList.add(line);
-						line = br.readLine();
 					}
-				} 
+				} while (line.charAt(0) == alphabet);
 			}
 		}
 		catch (IOException e){
@@ -66,7 +65,7 @@ public class WordStore {
 			return null;
 		} else {
 			List<String> wordList = mp.get(key);
-			String word = wordList.get((int) (mp.size() * Math.random()));
+			String word = wordList.get((int) (wordList.size()*Math.random()));
 			String finalWord = word.substring(0, 1).toUpperCase() + word.substring(1);
 			return finalWord;
 		}
