@@ -15,12 +15,11 @@ public class WordStore {
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new FileReader(filename));
+			String line = br.readLine();
 			for(char alphabet = 'A'; alphabet <= 'Z';alphabet++) {
 				String letter = String.valueOf(alphabet);
 				mp.put(letter, null);
-				String line = null;
-				do {
-					line = br.readLine();
+				do {					
 					if (line.length() < 3){
 					}
 					else {
@@ -31,6 +30,7 @@ public class WordStore {
 						}
 						wordList.add(line);
 					}
+					line = br.readLine();
 				} while (line.charAt(0) == alphabet);
 			}
 		}
