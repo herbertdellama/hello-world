@@ -19,7 +19,7 @@ public class WordStore {
 			for(char alphabet = 'A'; alphabet <= 'Z';alphabet++) {
 				String letter = String.valueOf(alphabet);
 				mp.put(letter, null);
-				do {					
+				while (line.charAt(0) == alphabet) {					
 					if (line.length() < 3){
 					}
 					else {
@@ -31,7 +31,7 @@ public class WordStore {
 						wordList.add(line);
 					}
 					line = br.readLine();
-				} while (line.charAt(0) == alphabet);
+				}
 			}
 		}
 		catch (IOException e){
